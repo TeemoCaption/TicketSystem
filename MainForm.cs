@@ -25,8 +25,9 @@ namespace TicketSystem
             string end = this.cboEnd.Text;   //目的地
             string date=this.dtpDate.Value.ToString("yyyy/MM/dd");   //發車時間
 
-            string sql = $@"select ticket_id,ticketNo,runTime,startStation,endStation,price,ticketNum 
-                from Ticket where runTime='{date}' ";
+            //select convert(varchar,runTime,112) from Ticket;   格式化日期
+            string sql = @"select ticket_id,ticketNo,runTime,startStation,endStation,price,ticketNum from Ticket 
+                where convert(varchar,runTime,111)=@date";
             this.dgvTicket.DataSource = dbHelper.GetDataTable(sql);
         }
     }
