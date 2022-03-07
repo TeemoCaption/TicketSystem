@@ -29,14 +29,21 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cboStart = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.cboEnd = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cboStart = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.dgvTicket = new System.Windows.Forms.DataGridView();
+            this.ticket_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ticketNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.runTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startStation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endStation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ticketNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).BeginInit();
             this.SuspendLayout();
@@ -58,39 +65,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查詢條件";
             // 
-            // btnSearch
+            // dateTimePicker1
             // 
-            this.btnSearch.Location = new System.Drawing.Point(1170, 65);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(97, 52);
-            this.btnSearch.TabIndex = 0;
-            this.btnSearch.Text = "查詢";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.dateTimePicker1.CustomFormat = "yyyy/MM/dd";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Location = new System.Drawing.Point(853, 73);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(248, 38);
+            this.dateTimePicker1.TabIndex = 6;
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(28, 76);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 30);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "起始站：";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // cboStart
-            // 
-            this.cboStart.FormattingEnabled = true;
-            this.cboStart.Items.AddRange(new object[] {
-            "彰化",
-            "屏東",
-            "雲林",
-            "左營"});
-            this.cboStart.Location = new System.Drawing.Point(154, 65);
-            this.cboStart.Name = "cboStart";
-            this.cboStart.Size = new System.Drawing.Size(182, 49);
-            this.cboStart.TabIndex = 2;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(714, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(133, 30);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "出發日期：";
             // 
             // cboEnd
             // 
@@ -115,35 +107,114 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "終點站：";
             // 
-            // label3
+            // cboStart
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(714, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 30);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "出發日期：";
+            this.cboStart.FormattingEnabled = true;
+            this.cboStart.Items.AddRange(new object[] {
+            "彰化",
+            "屏東",
+            "雲林",
+            "左營"});
+            this.cboStart.Location = new System.Drawing.Point(154, 65);
+            this.cboStart.Name = "cboStart";
+            this.cboStart.Size = new System.Drawing.Size(182, 49);
+            this.cboStart.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // label1
             // 
-            this.dateTimePicker1.CustomFormat = "yyyy/MM/dd";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Location = new System.Drawing.Point(853, 73);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(248, 38);
-            this.dateTimePicker1.TabIndex = 6;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(28, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 30);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "起始站：";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(1170, 65);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(97, 52);
+            this.btnSearch.TabIndex = 0;
+            this.btnSearch.Text = "查詢";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dgvTicket
             // 
             this.dgvTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTicket.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ticket_id,
+            this.ticketNo,
+            this.runTime,
+            this.startStation,
+            this.endStation,
+            this.price,
+            this.ticketNum});
             this.dgvTicket.Location = new System.Drawing.Point(13, 200);
             this.dgvTicket.Name = "dgvTicket";
             this.dgvTicket.RowHeadersWidth = 62;
             this.dgvTicket.RowTemplate.Height = 32;
-            this.dgvTicket.Size = new System.Drawing.Size(1330, 409);
+            this.dgvTicket.Size = new System.Drawing.Size(1116, 409);
             this.dgvTicket.TabIndex = 1;
             this.dgvTicket.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // ticket_id
+            // 
+            this.ticket_id.DataPropertyName = "ticket_id";
+            this.ticket_id.HeaderText = "編號";
+            this.ticket_id.MinimumWidth = 8;
+            this.ticket_id.Name = "ticket_id";
+            this.ticket_id.Width = 150;
+            // 
+            // ticketNo
+            // 
+            this.ticketNo.DataPropertyName = "ticketNo";
+            this.ticketNo.HeaderText = "車次";
+            this.ticketNo.MinimumWidth = 8;
+            this.ticketNo.Name = "ticketNo";
+            this.ticketNo.Width = 150;
+            // 
+            // runTime
+            // 
+            this.runTime.DataPropertyName = "runTime";
+            this.runTime.HeaderText = "發車時間";
+            this.runTime.MinimumWidth = 8;
+            this.runTime.Name = "runTime";
+            this.runTime.Width = 150;
+            // 
+            // startStation
+            // 
+            this.startStation.DataPropertyName = "startStation";
+            this.startStation.HeaderText = "起始站";
+            this.startStation.MinimumWidth = 8;
+            this.startStation.Name = "startStation";
+            this.startStation.Width = 150;
+            // 
+            // endStation
+            // 
+            this.endStation.DataPropertyName = "endStation";
+            this.endStation.HeaderText = "終點站";
+            this.endStation.MinimumWidth = 8;
+            this.endStation.Name = "endStation";
+            this.endStation.Width = 150;
+            // 
+            // price
+            // 
+            this.price.DataPropertyName = "price";
+            this.price.HeaderText = "票價";
+            this.price.MinimumWidth = 8;
+            this.price.Name = "price";
+            this.price.Width = 150;
+            // 
+            // ticketNum
+            // 
+            this.ticketNum.DataPropertyName = "ticketNum";
+            this.ticketNum.HeaderText = "剩餘車票";
+            this.ticketNum.MinimumWidth = 8;
+            this.ticketNum.Name = "ticketNum";
+            this.ticketNum.Width = 150;
             // 
             // MainForm
             // 
@@ -172,5 +243,12 @@
         private Label label2;
         private ComboBox cboStart;
         private DataGridView dgvTicket;
+        private DataGridViewTextBoxColumn ticket_id;
+        private DataGridViewTextBoxColumn ticketNo;
+        private DataGridViewTextBoxColumn runTime;
+        private DataGridViewTextBoxColumn startStation;
+        private DataGridViewTextBoxColumn endStation;
+        private DataGridViewTextBoxColumn price;
+        private DataGridViewTextBoxColumn ticketNum;
     }
 }

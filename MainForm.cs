@@ -20,7 +20,7 @@ namespace TicketSystem
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string sql = "select * from Ticket";
+            string sql = @"select ticket_id,ticketNo,runTime,startStation,endStation,ticketNum from Ticket";
             this.dgvTicket.DataSource = dbHelper.GetDataTable(sql);
         }
     }
