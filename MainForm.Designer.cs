@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.cboEnd = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtpDate);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cboEnd);
             this.groupBox1.Controls.Add(this.label2);
@@ -65,14 +65,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查詢條件";
             // 
-            // dateTimePicker1
+            // dtpDate
             // 
-            this.dateTimePicker1.CustomFormat = "yyyy/MM/dd";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Location = new System.Drawing.Point(853, 73);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(248, 38);
-            this.dateTimePicker1.TabIndex = 6;
+            this.dtpDate.CustomFormat = "yyyy/MM/dd";
+            this.dtpDate.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpDate.Location = new System.Drawing.Point(853, 73);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(248, 38);
+            this.dtpDate.TabIndex = 6;
             // 
             // label3
             // 
@@ -237,7 +237,7 @@
         private GroupBox groupBox1;
         private Label label1;
         private Button btnSearch;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpDate;
         private Label label3;
         private ComboBox cboEnd;
         private Label label2;
