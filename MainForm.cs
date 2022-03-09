@@ -1,4 +1,4 @@
-
+using System.Data.SqlClient;
 namespace TicketSystem
 {
     public partial class MainForm : Form
@@ -25,10 +25,19 @@ namespace TicketSystem
             string end = this.cboEnd.Text;   //目的地
             string date=this.dtpDate.Value.ToString("yyyy/MM/dd");   //發車時間
 
-            //select convert(varchar,runTime,112) from Ticket;   格式化日期
+            //select convert(varchar,runTime,111) from Ticket;   格式化日期
             string sql = @"select ticket_id,ticketNo,runTime,startStation,endStation,price,ticketNum from Ticket 
-                where convert(varchar,runTime,111)=@date";
+                where convert(varchar,runTime,111)=convert(varchar,@date,111) from Ticket";
             this.dgvTicket.DataSource = dbHelper.GetDataTable(sql);
+
+            //查詢出發地、目的地
+            sql += start != "" ? "and startStation=@startStation" : " ";
+            sql += end != "" ? "and endStation=@endStation" : " ";
+
+            SqlParameter[] paras = new SqlParameter[] {
+
+
+            };
         }
     }
 }
