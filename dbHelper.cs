@@ -90,12 +90,10 @@ public class dbHelper
         {
             SqlCommand command = new SqlCommand(sql, conn);
             command.Parameters.AddRange(paras);   //添加參數
-            SqlDataAdapter adapter = new SqlDataAdapter(command);   //創建數據適配器
-            adapter.Fill(dt);
-            
-            return dt;  
+            SqlDataAdapter adapter = new(command);   //創建數據適配器
+            adapter.Fill(dt); 
         }
-
+        return dt; 
     }
 }
 
