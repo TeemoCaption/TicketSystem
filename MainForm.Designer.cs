@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,8 +45,11 @@
             this.endStation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ticketNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmlBuy = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -58,7 +62,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1330, 166);
             this.groupBox1.TabIndex = 0;
@@ -152,13 +156,15 @@
             this.endStation,
             this.price,
             this.ticketNum});
-            this.dgvTicket.Location = new System.Drawing.Point(13, 200);
+            this.dgvTicket.Location = new System.Drawing.Point(58, 200);
             this.dgvTicket.Name = "dgvTicket";
             this.dgvTicket.RowHeadersWidth = 62;
             this.dgvTicket.RowTemplate.Height = 32;
-            this.dgvTicket.Size = new System.Drawing.Size(1116, 409);
+            this.dgvTicket.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTicket.Size = new System.Drawing.Size(1177, 409);
             this.dgvTicket.TabIndex = 1;
             this.dgvTicket.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvTicket.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTicket_CellMouseDown);
             // 
             // ticket_id
             // 
@@ -216,6 +222,21 @@
             this.ticketNum.Name = "ticketNum";
             this.ticketNum.Width = 150;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmlBuy});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(117, 34);
+            // 
+            // tsmlBuy
+            // 
+            this.tsmlBuy.Name = "tsmlBuy";
+            this.tsmlBuy.Size = new System.Drawing.Size(240, 30);
+            this.tsmlBuy.Text = "購買";
+            this.tsmlBuy.Click += new System.EventHandler(this.tsmlBuy_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -228,6 +249,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -251,5 +273,7 @@
         private DataGridViewTextBoxColumn endStation;
         private DataGridViewTextBoxColumn price;
         private DataGridViewTextBoxColumn ticketNum;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem tsmlBuy;
     }
 }
